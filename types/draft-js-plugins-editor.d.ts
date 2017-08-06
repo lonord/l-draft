@@ -12,4 +12,6 @@ declare module "draft-js-plugins-editor" {
 		// Remove focus from the editor node.
 		blur(): void
 	}
+
+	export var composeDecorators: any
 }

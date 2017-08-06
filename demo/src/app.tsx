@@ -20,7 +20,6 @@ class App extends React.Component<any, AppState> {
 		this.setState({
 			editorState
 		})
-		console.log(editorState.getSelection())
 	}
 
 	handleLogState = () => {
@@ -43,6 +42,7 @@ class App extends React.Component<any, AppState> {
 	}
 
 	componentWillUnmount() {
+		this.editor = null
 		if (window.localStorage) {
 			const rawState = convertToRaw(this.state.editorState.getCurrentContent())
 			window.localStorage.setItem('__l-editor-content__', JSON.stringify(rawState))

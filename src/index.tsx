@@ -1,15 +1,22 @@
 // tslint:disable-next-line:no-reference
 /// <reference path="../types/draft-js-plugins-editor.d.ts"/>
 
+import 'draft-js-image-plugin/lib/plugin.css'
 import 'draft-js-inline-toolbar-plugin/lib/plugin.css'
+import 'draft-js-linkify-plugin/lib/plugin.css'
 import './style/style.less'
 
 import { EditorState, SelectionState } from 'draft-js'
+import createAlignmentPlugin from 'draft-js-alignment-plugin'
+import createFocusPlugin from 'draft-js-focus-plugin'
+import createImagePlugin from 'draft-js-image-plugin'
 import createInlineToolbarPlugin from 'draft-js-inline-toolbar-plugin'
-import Editor from 'draft-js-plugins-editor'
+import createLinkifyPlugin from 'draft-js-linkify-plugin'
+import Editor, { composeDecorators } from 'draft-js-plugins-editor'
+import createResizeablePlugin from 'draft-js-resizeable-plugin'
 import createRichButtonsPlugin from 'draft-js-richbuttons-plugin'
-import * as React from 'react'
 import { CSSProperties } from 'react'
+import * as React from 'react'
 
 export interface LDraftProps {
 	editorState: EditorState
@@ -38,9 +45,33 @@ const {
 const inlineToolbarPlugin = createInlineToolbarPlugin()
 const { InlineToolbar } = inlineToolbarPlugin
 
+const linkifyPlugin = createLinkifyPlugin({
+	target: '_blank'
+})
+
+const focusPlugin = createFocusPlugin()
+
+const resizeablePlugin = createResizeablePlugin()
+
+const alignmentPlugin = createAlignmentPlugin()
+const { AlignmentTool } = alignmentPlugin
+
+const decorator = composeDecorators(
+	resizeablePlugin.decorator,
+	alignmentPlugin.decorator,
+	focusPlugin.decorator
+)
+
+const imagePlugin = createImagePlugin({ decorator })
+
 const plugins = [
 	richButtonsPlugin,
-	inlineToolbarPlugin
+	inlineToolbarPlugin,
+	linkifyPlugin,
+	focusPlugin,
+	alignmentPlugin,
+	resizeablePlugin,
+	imagePlugin
 ]
 
 class LDraft extends React.Component<LDraftProps, any> {
@@ -68,6 +99,10 @@ class LDraft extends React.Component<LDraftProps, any> {
 
 	blur() {
 		this.editor && this.editor.blur()
+	}
+
+	componentWillUnmount() {
+		this.editor = null
 	}
 
 	render() {
@@ -107,6 +142,7 @@ export class LDraftButtons extends React.Component<any, any> {
 				<ULButton />
 				<BlockquoteButton />
 				<CodeButton />
+				<button onClick={() => imagePlugin.addImage('https://lonord.name/static/image/icon.png')}>Add Image</button>
 			</div>
 		)
 	}

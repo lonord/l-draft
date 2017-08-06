@@ -23,8 +23,13 @@
   "homepage": "https://github.com/lonord/l-draft#readme",
   "dependencies": {
     "draft-js": "^0.10.1",
-    "draft-js-inline-toolbar-plugin": "^2.0.0-beta6",
-    "draft-js-plugins-editor": "^2.0.0-beta1",
+    "draft-js-alignment-plugin": "^2.0.0-rc3",
+    "draft-js-focus-plugin": "^2.0.0-rc3",
+    "draft-js-image-plugin": "^2.0.0-rc3",
+    "draft-js-inline-toolbar-plugin": "^2.0.0-rc3",
+    "draft-js-linkify-plugin": "^2.0.0-rc3",
+    "draft-js-plugins-editor": "^2.0.0-rc3",
+    "draft-js-resizeable-plugin": "^1.0.8",
     "draft-js-richbuttons-plugin": "^2.1.0"
   },
   "devDependencies": {
