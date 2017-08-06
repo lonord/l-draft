@@ -1,0 +1,13 @@
+{
+	"compilerOptions": {
+		"moduleResolution": "node",
+		"jsx": "preserve",
+		"target": "es6",
+		"allowSyntheticDefaultImports": true
+	},
+	"include": [
+		"./src/**/*",
+		"../src/**/*",
+		"../types/**/*"
+	]
+}

@@ -1,0 +1,47 @@
+{
+  "name": "l-draft",
+  "version": "0.1.0",
+  "description": "A rich text editor built with Draft.js",
+  "main": "lib/index.js",
+  "scripts": {
+    "dev": "reeasy -w demo dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lonord/l-draft.git"
+  },
+  "keywords": [
+    "draft.js",
+    "editor",
+    "react"
+  ],
+  "author": "Loy B. <lonord@qq.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lonord/l-draft/issues"
+  },
+  "homepage": "https://github.com/lonord/l-draft#readme",
+  "dependencies": {
+    "draft-js": "^0.10.1",
+    "draft-js-inline-toolbar-plugin": "^2.0.0-beta6",
+    "draft-js-plugins-editor": "^2.0.0-beta1",
+    "draft-js-richbuttons-plugin": "^2.1.0"
+  },
+  "devDependencies": {
+    "@types/draft-js": "^0.10.10",
+    "@types/react": "^16.0.0",
+    "awesome-typescript-loader": "^3.2.2",
+    "css-loader": "^0.28.4",
+    "file-loader": "^0.11.2",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.5",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "reeasy": "github:lonord/reeasy.js",
+    "style-loader": "^0.18.2",
+    "tslint": "^5.5.0",
+    "tslint-react": "^3.2.0",
+    "typescript": "^2.4.2",
+    "webpack": "^3.4.1"
+  }
+}
