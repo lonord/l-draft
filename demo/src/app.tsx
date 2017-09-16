@@ -26,8 +26,8 @@ class App extends React.Component<any, AppState> {
 		console.log(convertToRaw(this.state.editorState.getCurrentContent()))
 	}
 
-	handleFocus = () => {
-		this.editor && this.editor.focus(true)
+	handleMoveCursorToEnd = () => {
+		this.editor && this.editor.moveCursorToEnd()
 	}
 
 	componentDidMount() {
@@ -59,7 +59,7 @@ class App extends React.Component<any, AppState> {
 					<div className="buttons-wrapper">
 						<LDraftButtons />
 					</div>
-					<div className="editor-wrapper" onClick={this.handleFocus}>
+					<div className="editor-wrapper" onClick={this.handleMoveCursorToEnd}>
 						<Editor
 							ref={(editor) => this.editor = editor}
 							editorState={this.state.editorState}
