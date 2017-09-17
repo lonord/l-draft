@@ -11,13 +11,9 @@ export default function createDeleteTextPlugin() {
 				const endKey = selection.getEndKey()
 				const endOffset = selection.getEndOffset()
 				if (startKey !== endKey || startOffset !== endOffset) {
-					let newEditorState = EditorState.createWithContent(Modifier.removeRange(content, selection, 'forward'))
-					newEditorState = EditorState.forceSelection(newEditorState, selection.merge({
-						anchorKey: startKey,
-						anchorOffset: startOffset,
-						focusKey: startKey,
-						focusOffset: startOffset
-					}) as SelectionState)
+					const newEditorState = EditorState.push(editorState,
+						Modifier.removeRange(content, selection, 'forward'),
+						'remove-range')
 					setEditorState(newEditorState)
 					return 'handled'
 				}

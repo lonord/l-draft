@@ -23,14 +23,16 @@
   "homepage": "https://github.com/lonord/l-draft#readme",
   "dependencies": {
     "draft-js": "^0.10.1",
-    "draft-js-alignment-plugin": "^2.0.0-rc4",
-    "draft-js-focus-plugin": "^2.0.0-rc4",
-    "draft-js-image-plugin": "^2.0.0-rc4",
-    "draft-js-inline-toolbar-plugin": "^2.0.0-rc4",
-    "draft-js-linkify-plugin": "^2.0.0-rc4",
-    "draft-js-plugins-editor": "^2.0.0-rc4",
-    "draft-js-resizeable-plugin": "^2.0.0-rc4",
-    "draft-js-richbuttons-plugin": "^2.1.0"
+    "draft-js-alignment-plugin": "^2.0.0-rc7",
+    "draft-js-block-breakout-plugin": "^2.0.1",
+    "draft-js-focus-plugin": "^2.0.0-rc7",
+    "draft-js-image-plugin": "^2.0.0-rc7",
+    "draft-js-inline-toolbar-plugin": "^2.0.0-rc7",
+    "draft-js-linkify-plugin": "^2.0.0-rc7",
+    "draft-js-plugins-editor": "^2.0.0-rc7",
+    "draft-js-resizeable-plugin": "^2.0.0-rc7",
+    "draft-js-richbuttons-plugin": "^2.1.0",
+    "draft-js-undo-plugin": "^2.0.0-beta6"
   },
   "devDependencies": {
     "@types/draft-js": "^0.10.10",

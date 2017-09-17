@@ -34,6 +34,7 @@ class App extends React.Component<any, AppState> {
 		if (window.localStorage) {
 			const rawStateJSONString = window.localStorage.getItem('__l-editor-content__')
 			if (rawStateJSONString) {
+				console.log('read from localStorage')
 				this.setState({
 					editorState: EditorState.createWithContent(convertFromRaw(JSON.parse(rawStateJSONString)))
 				})
@@ -46,6 +47,7 @@ class App extends React.Component<any, AppState> {
 		if (window.localStorage) {
 			const rawState = convertToRaw(this.state.editorState.getCurrentContent())
 			window.localStorage.setItem('__l-editor-content__', JSON.stringify(rawState))
+			console.log('save to localStorage')
 		}
 	}
 
