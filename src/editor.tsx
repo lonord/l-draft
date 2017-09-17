@@ -5,13 +5,12 @@ import 'draft-js-linkify-plugin/lib/plugin.css'
 
 import { EditorState, Modifier, SelectionState } from 'draft-js'
 import createBlockBreakoutPlugin from 'draft-js-block-breakout-plugin'
+import createDeleteTextPlugin from 'draft-js-delete-selection-plugin'
 import createLinkifyPlugin from 'draft-js-linkify-plugin'
 import Editor, { composeDecorators, PluginEditorProps } from 'draft-js-plugins-editor'
 import createRichButtonsPlugin from 'draft-js-richbuttons-plugin'
 import { CSSProperties } from 'react'
 import * as React from 'react'
-
-import createDeleteTextPlugin from './plugins/draft-js-delete-text-plugin/'
 
 const linkifyPlugin = createLinkifyPlugin()
 

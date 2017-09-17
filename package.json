@@ -25,6 +25,7 @@
     "draft-js": "^0.10.1",
     "draft-js-alignment-plugin": "^2.0.0-rc7",
     "draft-js-block-breakout-plugin": "^2.0.1",
+    "draft-js-delete-selection-plugin": "^0.1.0",
     "draft-js-focus-plugin": "^2.0.0-rc7",
     "draft-js-image-plugin": "^2.0.0-rc7",
     "draft-js-inline-toolbar-plugin": "^2.0.0-rc7",
