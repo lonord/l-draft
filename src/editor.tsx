@@ -11,7 +11,7 @@ import createRichButtonsPlugin from 'draft-js-richbuttons-plugin'
 import { CSSProperties } from 'react'
 import * as React from 'react'
 
-import createDeleteTextPlugin from './plugins/draft-js-delete-text-plugin'
+import createDeleteTextPlugin from './plugins/draft-js-delete-text-plugin/'
 
 const linkifyPlugin = createLinkifyPlugin()
 
