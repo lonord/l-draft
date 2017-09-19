@@ -1,6 +1,6 @@
-import Editor, { LDraftButtons } from './editor'
+import Editor, { Toolbar } from './editor'
 
 export default Editor
 export {
-	LDraftButtons
+	Toolbar
 }

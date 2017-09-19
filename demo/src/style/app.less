@@ -1,18 +1,5 @@
 @import './flex.less';
 
-* {
-    margin: 0;
-    padding: 0;
-    border: none;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-
-    &:focus {
-        outline: none;
-    }
-}
-
 html,
 body,
 #root,
@@ -21,6 +8,10 @@ body,
 }
 
 button {
+    cursor: pointer;
+}
+
+.themed-button {
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 2px 10px;

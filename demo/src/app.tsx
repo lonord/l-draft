@@ -1,8 +1,9 @@
+import 'normalize.css'
 import './style/app.less'
 
 import { convertFromRaw, convertToRaw, EditorState, SelectionState } from 'draft-js'
 import * as React from 'react'
-import Editor, { LDraftButtons } from '../../src/'
+import Editor, { Toolbar } from '../../src/'
 
 interface AppState {
 	editorState: EditorState
@@ -58,9 +59,7 @@ class App extends React.Component<any, AppState> {
 					<h1>Demo of L Draft</h1>
 				</div>
 				<div className="content">
-					<div className="buttons-wrapper">
-						<LDraftButtons />
-					</div>
+						<Toolbar />
 					<div className="editor-wrapper" onClick={this.handleMoveCursorToEnd}>
 						<Editor
 							ref={(editor) => this.editor = editor}
@@ -69,7 +68,7 @@ class App extends React.Component<any, AppState> {
 					</div>
 				</div>
 				<div className="footer">
-					<button onClick={this.handleLogState}>Log State</button>
+					<button className="themed-button" onClick={this.handleLogState}>Log State</button>
 				</div>
 	  		</div>
 		)
