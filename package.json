@@ -31,7 +31,7 @@
     "draft-js-inline-toolbar-plugin": "^2.0.0-rc7",
     "draft-js-link-plugin": "^1.2.2",
     "draft-js-linkify-plugin": "^2.0.0-rc7",
-    "draft-js-plugin-editor-toolbar-picker": "^0.1.2",
+    "draft-js-plugin-editor-toolbar-picker": "^0.1.4",
     "draft-js-plugins-editor": "^2.0.0-rc7",
     "draft-js-resizeable-plugin": "^2.0.0-rc7",
     "draft-js-richbuttons-plugin": "^2.1.0",

@@ -27,8 +27,9 @@ class App extends React.Component<any, AppState> {
 		console.log(convertToRaw(this.state.editorState.getCurrentContent()))
 	}
 
-	handleMoveCursorToEnd = () => {
+	handleMoveCursorToEnd = (e) => {
 		this.editor && this.editor.moveCursorToEnd()
+		e.stopPropagation()
 	}
 
 	componentDidMount() {
@@ -58,8 +59,10 @@ class App extends React.Component<any, AppState> {
 				<div className="title">
 					<h1>Demo of L Draft</h1>
 				</div>
-				<div className="content">
+				<div className="content" onClick={() => this.editor && this.editor.focus()}>
+					<div className="toolbar-wrapper">
 						<Toolbar />
+					</div>
 					<div className="editor-wrapper" onClick={this.handleMoveCursorToEnd}>
 						<Editor
 							ref={(editor) => this.editor = editor}
