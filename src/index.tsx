@@ -1,4 +1,4 @@
-import Editor, { Toolbar } from './editor'
+import Editor, { Toolbar } from './component/editor'
 
 export default Editor
 export {

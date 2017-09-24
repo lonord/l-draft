@@ -1,5 +1,5 @@
 // tslint:disable-next-line:no-reference
-/// <reference path="../types/draft-js-plugins-editor.d.ts"/>
+/// <reference path="../../types/draft-js-plugins-editor.d.ts"/>
 
 import 'draft-js-static-toolbar-plugin/lib/plugin.css'
 
@@ -28,6 +28,8 @@ import { CSSProperties } from 'react'
 import * as React from 'react'
 import createRenderOrderFixer from 'react-render-order-fixer'
 
+import { inlineButtonTheme, toolbarTheme } from '../util/theme'
+
 const Picker = createPicker({
 	triggerItem: createTriggerButton({ child: 'H' }),
 	items: [
@@ -48,8 +50,13 @@ const toolbarPlugin = createToolbarPlugin({
 		UnorderedListButton,
 		OrderedListButton,
 		BlockquoteButton,
-		CodeBlockButton
-	]
+		CodeBlockButton,
+		Separator
+	],
+	theme: {
+		buttonStyles: inlineButtonTheme,
+		toolbarStyles: toolbarTheme
+	}
 })
 
 const blockBreakoutPlugin = createBlockBreakoutPlugin()
@@ -90,7 +97,7 @@ class LDraft extends React.Component<PluginEditorProps, any> {
 	render() {
 		const { editorState, onChange, ...rest } = this.props
 		return (
-			<div onClick={(e) => e.stopPropagation()}>
+			<div>
 				<Editor ref={(editor) => this.editor = editor}
 					editorState={editorState}
 					onChange={onChange}

@@ -41,8 +41,7 @@
 		],
 		"jsx-no-lambda": false,
 		"no-unused-expression": [
-			true,
-			"allow-fast-null-checks"
+			false
 		],
 		"variable-name": [
 			false
