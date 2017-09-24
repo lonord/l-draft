@@ -61,7 +61,7 @@ class App extends React.Component<any, AppState> {
 				</div>
 				<div className="content" onClick={() => this.editor && this.editor.focus()}>
 					<div className="toolbar-wrapper">
-						<Toolbar />
+						<Toolbar/>
 					</div>
 					<div className="editor-wrapper" onClick={this.handleMoveCursorToEnd}>
 						<Editor

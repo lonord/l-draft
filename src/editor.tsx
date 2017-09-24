@@ -26,6 +26,7 @@ import createRichButtonsPlugin from 'draft-js-richbuttons-plugin'
 import createToolbarPlugin, { Separator } from 'draft-js-static-toolbar-plugin'
 import { CSSProperties } from 'react'
 import * as React from 'react'
+import createRenderOrderFixer from 'react-render-order-fixer'
 
 const Picker = createPicker({
 	triggerItem: createTriggerButton({ child: 'H' }),
@@ -50,7 +51,6 @@ const toolbarPlugin = createToolbarPlugin({
 		CodeBlockButton
 	]
 })
-const { Toolbar } = toolbarPlugin
 
 const blockBreakoutPlugin = createBlockBreakoutPlugin()
 
@@ -61,6 +61,10 @@ const plugins = [
 	blockBreakoutPlugin,
 	deleteTextPlugin
 ]
+
+const renderOrderFixer = createRenderOrderFixer()
+const ToolbarFixed = renderOrderFixer.withOrderFixer(toolbarPlugin.Toolbar)
+const { ReRenderTrigger } = renderOrderFixer
 
 class LDraft extends React.Component<PluginEditorProps, any> {
 
@@ -92,6 +96,7 @@ class LDraft extends React.Component<PluginEditorProps, any> {
 					onChange={onChange}
 					{...rest}
 					plugins={plugins} />
+				<ReRenderTrigger/>
 			</div>
 		)
 	}
@@ -99,4 +104,4 @@ class LDraft extends React.Component<PluginEditorProps, any> {
 
 export default LDraft
 
-export { Toolbar }
+export const Toolbar = ToolbarFixed

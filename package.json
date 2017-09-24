@@ -36,7 +36,8 @@
     "draft-js-resizeable-plugin": "^2.0.0-rc7",
     "draft-js-richbuttons-plugin": "^2.1.0",
     "draft-js-static-toolbar-plugin": "^2.0.0-rc4",
-    "draft-js-undo-plugin": "^2.0.0-beta6"
+    "draft-js-undo-plugin": "^2.0.0-beta6",
+    "react-render-order-fixer": "^1.0.0"
   },
   "devDependencies": {
     "@types/draft-js": "^0.10.10",
