@@ -32,10 +32,11 @@
     "draft-js-link-plugin": "^1.2.2",
     "draft-js-linkify-plugin": "^2.0.0-rc7",
     "draft-js-plugin-editor-toolbar-picker": "^0.1.5",
-    "draft-js-plugins-editor": "^2.0.0-rc7",
+    "draft-js-plugins-editor": "^2.0.0-rc8",
     "draft-js-resizeable-plugin": "^2.0.0-rc7",
     "draft-js-richbuttons-plugin": "^2.1.0",
-    "draft-js-static-toolbar-plugin": "^2.0.0-rc4",
+    "draft-js-static-toolbar-plugin": "^2.0.0-rc8",
+    "draft-js-toolbar-link-plugin": "^1.0.0",
     "draft-js-undo-plugin": "^2.0.0-beta6",
     "react-render-order-fixer": "^1.0.0",
     "styled-components": "^2.1.2"

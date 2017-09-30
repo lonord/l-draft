@@ -1,7 +1,7 @@
 import 'normalize.css'
 import './style/app.less'
 
-import { convertFromRaw, convertToRaw, EditorState, SelectionState } from 'draft-js'
+import { ContentState, convertFromRaw, convertToRaw, EditorState, SelectionState } from 'draft-js'
 import * as React from 'react'
 import Editor, { Toolbar } from '../../src/'
 
@@ -14,10 +14,11 @@ class App extends React.Component<any, AppState> {
 	editor?: Editor
 
 	state: AppState = {
-		editorState: EditorState.createEmpty()
+		editorState: createEditorState()
 	}
 
 	handleChange = (editorState: EditorState) => {
+		console.log(editorState.getDecorator())
 		this.setState({
 			editorState
 		})
@@ -33,32 +34,16 @@ class App extends React.Component<any, AppState> {
 		}
 	}
 
-	componentDidMount() {
-		if (window.localStorage) {
-			const rawStateJSONString = window.localStorage.getItem('__l-editor-content__')
-			if (rawStateJSONString) {
-				console.log('read from localStorage')
-				this.setState({
-					editorState: EditorState.createWithContent(convertFromRaw(JSON.parse(rawStateJSONString)))
-				})
-			}
-		}
-	}
-
 	componentWillUnmount() {
 		this.editor = null
-		if (window.localStorage) {
-			const rawState = convertToRaw(this.state.editorState.getCurrentContent())
-			window.localStorage.setItem('__l-editor-content__', JSON.stringify(rawState))
-			console.log('save to localStorage')
-		}
+		saveContent(this.state.editorState.getCurrentContent())
 	}
 
 	render() {
 		return (
 			<div className="app-root">
 				<div className="title">
-					<h1>Demo of L Draft</h1>
+					{/* <h1>Demo of L Draft</h1> */}
 				</div>
 				<div className="content">
 					<div className="toolbar-wrapper" onClick={() => this.editor && this.editor.focus()}>
@@ -80,3 +65,27 @@ class App extends React.Component<any, AppState> {
 }
 
 export default App
+
+function createEditorState() {
+	const content = readContent()
+	return content ? EditorState.createWithContent(content) : EditorState.createEmpty()
+}
+
+function readContent(): ContentState {
+	if (window && window.localStorage) {
+		const rawStateJSONString = window.localStorage.getItem('__l-editor-content__')
+		if (rawStateJSONString) {
+			console.log('read from localStorage')
+			return convertFromRaw(JSON.parse(rawStateJSONString))
+		}
+	}
+	return null
+}
+
+function saveContent(contentState: ContentState) {
+	if (window && window.localStorage) {
+		const rawState = convertToRaw(contentState)
+		window.localStorage.setItem('__l-editor-content__', JSON.stringify(rawState))
+		console.log('save to localStorage')
+	}
+}

@@ -24,6 +24,7 @@ import createPicker, { createTriggerButton } from 'draft-js-plugin-editor-toolba
 import Editor, { composeDecorators, PluginEditorProps } from 'draft-js-plugins-editor'
 import createRichButtonsPlugin from 'draft-js-richbuttons-plugin'
 import createToolbarPlugin, { Separator } from 'draft-js-static-toolbar-plugin'
+import createToolbarLinkPlugin from 'draft-js-toolbar-link-plugin'
 import { CSSProperties } from 'react'
 import * as React from 'react'
 import createRenderOrderFixer from 'react-render-order-fixer'
@@ -39,12 +40,16 @@ const Picker = createPicker({
 	]
 })
 
+const toolbarLinkPlugin = createToolbarLinkPlugin()
+const { LinkButton } = toolbarLinkPlugin
+
 const toolbarPlugin = createToolbarPlugin({
 	structure: [
 		BoldButton,
 		ItalicButton,
 		UnderlineButton,
 		CodeButton,
+		LinkButton,
 		Separator,
 		Picker,
 		UnorderedListButton,
@@ -66,7 +71,8 @@ const deleteTextPlugin = createDeleteTextPlugin()
 const plugins = [
 	toolbarPlugin,
 	blockBreakoutPlugin,
-	deleteTextPlugin
+	deleteTextPlugin,
+	toolbarLinkPlugin
 ]
 
 const renderOrderFixer = createRenderOrderFixer()
