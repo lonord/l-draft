@@ -19,10 +19,8 @@ import {
 	UnorderedListButton
 } from 'draft-js-buttons'
 import createDeleteTextPlugin from 'draft-js-delete-selection-plugin'
-import createLinkifyPlugin from 'draft-js-linkify-plugin'
 import createPicker, { createTriggerButton } from 'draft-js-plugin-editor-toolbar-picker'
 import Editor, { composeDecorators, PluginEditorProps } from 'draft-js-plugins-editor'
-import createRichButtonsPlugin from 'draft-js-richbuttons-plugin'
 import createToolbarPlugin, { Separator } from 'draft-js-static-toolbar-plugin'
 import createToolbarLinkPlugin from 'draft-js-toolbar-link-plugin'
 import { CSSProperties } from 'react'
@@ -55,8 +53,7 @@ const toolbarPlugin = createToolbarPlugin({
 		UnorderedListButton,
 		OrderedListButton,
 		BlockquoteButton,
-		CodeBlockButton,
-		Separator
+		CodeBlockButton
 	],
 	theme: {
 		buttonStyles: inlineButtonTheme,

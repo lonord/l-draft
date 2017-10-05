@@ -39,18 +39,8 @@ module.exports = {
 		})
 
 		config.module.loaders.push({
-			test: /\.(css|less)$/,
-			loader: 'style-loader!css-loader!less-loader'
-		})
-
-		config.module.loaders.push({
-			test: /\.(png|jpg|gif|ico)$/,
-			loader: 'file-loader?outputPath=images/&name=[name].[ext]&publicPath=/'
-		})
-
-		config.module.loaders.push({
-			test: /\.(woff|woff2|svg|eot|ttf)\??.*$/,
-			loader: 'file-loader?outputPath=fonts/&name=[name].[ext]&publicPath=/'
+			test: /\.css$/,
+			loader: 'style-loader!css-loader'
 		})
 
 		config.plugins.push(new webpack.ProgressPlugin())

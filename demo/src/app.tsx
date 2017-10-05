@@ -1,11 +1,19 @@
 import 'babel-polyfill'
 
 import 'normalize.css'
-import './style/app.less'
 
 import { ContentState, convertFromRaw, convertToRaw, EditorState, SelectionState } from 'draft-js'
 import * as React from 'react'
 import Editor, { Toolbar } from '../../src/'
+import {
+	AppWrapper,
+	ContentWrapper,
+	EditorWrapper,
+	FooterWrapper,
+	LogButton,
+	TitleWrapper,
+	ToolbarWrapper
+} from './styled'
 
 interface AppState {
 	editorState: EditorState
@@ -20,7 +28,6 @@ class App extends React.Component<any, AppState> {
 	}
 
 	handleChange = (editorState: EditorState) => {
-		console.log(editorState.getDecorator())
 		this.setState({
 			editorState
 		})
@@ -43,25 +50,25 @@ class App extends React.Component<any, AppState> {
 
 	render() {
 		return (
-			<div className="app-root">
-				<div className="title">
-					{/* <h1>Demo of L Draft</h1> */}
-				</div>
-				<div className="content">
-					<div className="toolbar-wrapper" onClick={() => this.editor && this.editor.focus()}>
-						<Toolbar/>
-					</div>
-					<div className="editor-wrapper" onClick={this.handleMoveCursorToEnd}>
+			<AppWrapper>
+				<TitleWrapper>
+					<h3>Demo of L Draft</h3>
+				</TitleWrapper>
+				<ContentWrapper>
+					<ToolbarWrapper onClick={() => this.editor && this.editor.focus()}>
+						<Toolbar />
+					</ToolbarWrapper>
+					<EditorWrapper onClick={this.handleMoveCursorToEnd}>
 						<Editor
 							ref={(editor) => this.editor = editor}
 							editorState={this.state.editorState}
 							onChange={this.handleChange} />
-					</div>
-				</div>
-				<div className="footer">
-					<button className="themed-button" onClick={this.handleLogState}>Log State</button>
-				</div>
-	  		</div>
+					</EditorWrapper>
+				</ContentWrapper>
+				<FooterWrapper>
+					<LogButton onClick={this.handleLogState}>Log State</LogButton>
+				</FooterWrapper>
+			</AppWrapper>
 		)
 	}
 }
