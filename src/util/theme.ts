@@ -31,7 +31,7 @@ injectGlobal`
 		font-size: 18px;
 		border: 0;
 		padding-top: 5px;
-		vertical-align: bottom;
+		vertical-align: text-bottom;
 		height: 34px;
 		width: 36px;
 		& svg {
